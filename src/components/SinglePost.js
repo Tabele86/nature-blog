@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import sanityClient, { dataset, projectId } from '../client.js';
 import imageUrlBuilder from '@sanity/image-url';
 import BlockContent from '@sanity/block-content-to-react';
+import Footer from './Footer.js';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -42,7 +43,6 @@ export default function SinglePost() {
 
 	return (
 		<main className="bg-green-600 min-h-screen p-12">
-			{/* <Link to="/post/" exact className="text-white text-base items-center"><FontAwesomeIcon icon={faChevronLeft} className="mr-4"></FontAwesomeIcon> Back to Blog</Link> */}
 			<article className="container shadow-lg mx-auto bg-green-100 rounded-lg">
 				<header className="relative">
 					<div className="absolute h-full w-full flex items-center justify-center p-8">
@@ -71,6 +71,7 @@ export default function SinglePost() {
 					<BlockContent blocks={singlePost.body} projectId={projectId} dataset={dataset} />
 				</div>
 			</article>
+			<Footer />
 		</main>
 	);
 }
